@@ -113,9 +113,9 @@ def clean_raw_location(text):
     text = quickfix_patterns['curly'].sub(get_chars_in_parentheses, text)
     
     #Turn accents into unicode
-    #soup = BeautifulSoup(text)
-    #text = unicode(soup.get_text())
-    #text =  unicodedata.normalize('NFC', text)
+    soup = BeautifulSoup(text)
+    text = unicode(soup.get_text())
+    text =  unicodedata.normalize('NFC', text)
     
     text = foreign_postal_pattern.sub('', text)
     text = postal_pattern.sub('', text)
